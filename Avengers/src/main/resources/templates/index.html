@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+	crossorigin="anonymous">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark"
+			style="background-color: #33FF48">
+			<div>
+				<a href="" class="navbar-brand"> Administracion de Nomina</a>
+			</div>
+
+
+		</nav>
+	</header>
+	<div class="container">
+
+		<!-- 	private String nombre; -->
+		<br>
+		<div>
+			<a th:href="@{/crear/}" class="btn btn-primary">Agregar</a>
+		</div>
+		<!-- 		<h2 th:if="${list.isEmpty()}">No hay Empleados</h2> -->
+		<div class="container">
+			<h2 th:text="${titulo}"></h2>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nombre</th>
+						<th>Heroe</th>
+						<th>Fecha de nacimiento</th>
+						<th>Fecha de aparicion</th>
+						<th>Genero</th>
+						<th>Estado</th>
+						<th>Descripcion</th>
+						<th>Arma</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="heroe: ${listaHeroes}">
+						<td th:text="${heroe.id}">
+						<td th:text="${heroe.nombre}">
+						<td th:text="${heroe.heroe}">
+						<td th:text="${heroe.fechanacimiento}">
+						<td th:text="${heroe.fechaaparicion}">
+						<td th:text="${heroe.generoBean.getDescripcion()}">
+						<td th:text="${heroe.estadoBean.getDescripcion()}">
+						<td th:text="${heroe.descripcion}">
+						<td th:text="${heroe.arma}">
+						<td><a class="btn btn-info"
+							th:href="@{/form/}+${heroe.id}">Editar</a></td>
+						<td><a class="btn btn-danger"
+							th:href="@{/eliminar/{id}(id=${heroe.id})}">Eliminar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
